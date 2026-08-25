@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWindowBackground">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/layout_title_profile_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_15sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_no_color_round_rec"
+                    android:backgroundTint="@color/colorWhite"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_15sdp">
+
+                    <com.github.ramiz.nameinitialscircleimageview.NameInitialsCircleImageView
+                        android:id="@+id/win_icon"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center_vertical"
+                        app:circleBackgroundColor="@color/textColor"
+                        app:text="A"
+                        app:textFont="@font/inter_semibold"
+                        app:textSize="12sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title"
+                            style="@style/TextStyleHeading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#384549"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/desc"
+                            style="@style/TextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/ticker_price"
+                        style="@style/TextStyleHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/dollar_0"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/bg_no_color_round_rec"
+                    android:backgroundTint="@color/colorWhite"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_15sdp">
+
+                    <TextView
+                        style="@style/TextStyle.SemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recurring_buy_amount"
+                        android:textColor="#B092ACB5"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/amount"
+                        style="@style/Widget.App.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_42sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@drawable/bg_border_small_round_rec"
+                        android:drawableStart="@drawable/ic_dollar"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:inputType="numberDecimal"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/hintColor"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        style="@style/TextStyle.SemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:text="@string/recurring_frequency"
+                        android:textColor="#B092ACB5"
+                        android:textSize="12sp" />
+
+                    <RadioGroup
+                        android:id="@+id/frequency_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/frequency_weekly"
+                            style="@style/TextStyle.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:tag="weekly"
+                            android:text="@string/frequency_weekly"
+                            android:textColor="@color/colorBlack" />
+
+                        <RadioButton
+                            android:id="@+id/frequency_biweekly"
+                            style="@style/TextStyle.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:tag="biweekly"
+                            android:text="@string/frequency_biweekly"
+                            android:textColor="@color/colorBlack" />
+
+                        <RadioButton
+                            android:id="@+id/frequency_monthly"
+                            style="@style/TextStyle.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            android:tag="monthly"
+                            android:text="@string/frequency_monthly"
+                            android:textColor="@color/colorBlack" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/account_status"
+                        style="@style/TextStyle.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:text="@string/auto_trade_requires_approval"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/manage_rules"
+                        style="@style/TextStyleHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:text="@string/manage_auto_trades"
+                        android:textColor="@color/color_text_theme"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/bg_no_color_round_rec"
+                    android:backgroundTint="@color/colorWhite"
+                    android:padding="@dimen/_12sdp">
+
+                    <ImageView
+                        android:id="@+id/icon_bank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:src="@drawable/ic_wallet" />
+
+                    <TextView
+                        android:id="@+id/fund_title"
+                        style="@style/TextStyle.SemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_toEndOf="@id/icon_bank"
+                        android:text="@string/funds_available"
+                        android:textColor="@color/hintColor"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/balance"
+                        style="@style/TextStyleHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fund_title"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_toEndOf="@id/icon_bank"
+                        android:text="@string/dollar_0"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/account_no"
+                        style="@style/TextStyle.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/balance"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_toEndOf="@id/icon_bank"
+                        android:textColor="#872C3A40"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/bank_name"
+                        style="@style/TextStyleHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/add_fund"
+                        style="@style/TextStyleHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_below="@id/bank_name"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="@string/plus_add_funds"
+                        android:textColor="@color/color_text_theme"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/create_rule"
+                    style="@style/ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:text="@string/create_auto_trade"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/progress_bar"
+            layout="@layout/layout_progress_bar" />
+
+        <include
+            android:id="@+id/error_message"
+            layout="@layout/message_dialog" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

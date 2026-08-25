@@ -1,0 +1,25 @@
+<resources>
+    <string name="auto_trade_title">Auto Trade</string>
+    <string name="auto_trades_title">Auto Trades</string>
+    <string name="set_auto_trade">Set Auto Trade</string>
+    <string name="manage_auto_trades">Manage Auto Trades</string>
+    <string name="create_auto_trade">Create Auto Trade</string>
+    <string name="recurring_buy_amount">Recurring Buy Amount</string>
+    <string name="recurring_frequency">Recurring Frequency</string>
+    <string name="frequency_weekly">Weekly</string>
+    <string name="frequency_biweekly">Every 2 Weeks</string>
+    <string name="frequency_monthly">Monthly</string>
+    <string name="auto_trade_created">Auto trade created</string>
+    <string name="auto_trade_paused">Auto trade paused</string>
+    <string name="auto_trade_resumed">Auto trade resumed</string>
+    <string name="auto_trade_deleted">Auto trade removed</string>
+    <string name="auto_trade_requires_approval">Auto-trading is available after account approval.</string>
+    <string name="account_ready_auto_trade">Account approved for recurring buys.</string>
+    <string name="auto_trade_requires_bank">Link a bank account before creating an auto trade.</string>
+    <string name="auto_trade_requires_active_asset">Only active assets can be scheduled for auto trade.</string>
+    <string name="auto_trade_insufficient_buying_power">Insufficient buying power for this recurring amount.</string>
+    <string name="auto_trade_duplicate_rule">A matching recurring buy already exists.</string>
+    <string name="no_auto_trade_rules">No auto-trade rules found.</string>
+    <string name="auto_trade_rules_summary">Manage scheduled recurring buys and review their status.</string>
+    <string name="auto_trade_symbol_not_found">Unable to open ticker details for this rule.</string>
+</resources>

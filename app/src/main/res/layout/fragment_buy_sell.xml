@@ -347,6 +347,18 @@
 
                 </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/auto_trade"
+                    style="@style/ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/bg_custom_color_round_rec"
+                    android:text="@string/set_auto_trade"
+                    android:textColor="@color/color_text_theme"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
                 <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                     android:id="@+id/buy_sell"
                     style="@style/AnimatedButtonStyle"

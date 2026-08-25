@@ -97,9 +97,11 @@ public class BuySellFragment extends NetworkFragment {
         if (tag.equalsIgnoreCase(getString(R.string.buy))) {
             mBinding.toolbar.title.setText(getString(R.string.purchase_stock));
             mBinding.buySell.setText(getString(R.string.buy_x, asset.symbol));
+            mBinding.autoTrade.setVisibility(View.VISIBLE);
         } else {
             mBinding.toolbar.title.setText(getString(R.string.sell_stock));
             mBinding.buySell.setText(getString(R.string.sell_x, asset.symbol));
+            mBinding.autoTrade.setVisibility(View.GONE);
         }
 
         getUser();
@@ -189,11 +191,13 @@ public class BuySellFragment extends NetworkFragment {
                     mBinding.buySell.setText(getString(R.string.buy_x, asset.symbol));
                     tag = getString(R.string.buy);
                     mBinding.fundsLayout.setVisibility(View.VISIBLE);
+                    mBinding.autoTrade.setVisibility(View.VISIBLE);
                 } else if (s.equalsIgnoreCase(getString(R.string.sell))) {
                     mBinding.toolbar.title.setText(getString(R.string.sell_stock));
                     mBinding.buySell.setText(getString(R.string.sell_x, asset.symbol));
                     tag = getString(R.string.sell);
                     mBinding.fundsLayout.setVisibility(View.GONE);
+                    mBinding.autoTrade.setVisibility(View.GONE);
                 }
             }
 
@@ -293,6 +297,11 @@ public class BuySellFragment extends NetworkFragment {
                     }
                 }
             }
+        });
+        mBinding.autoTrade.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("asset", asset);
+            ActivityUtils.launchFragment(requireActivity(), AutoTradeSetupFragment.class, bundle);
         });
         mBinding.addFund.setOnClickListener(v -> {
             if (mUser.account_status.equalsIgnoreCase("APPROVED")) {

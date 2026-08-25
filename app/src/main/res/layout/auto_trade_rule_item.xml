@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="rule"
+            type="com.stockly.android.models.AutoTradeRule" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/bg_no_color_round_rec"
+        android:backgroundTint="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="@dimen/_12sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/TextStyleHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{rule.getTitle()}"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/status"
+                style="@style/TextStyle.SemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_custom_color_round_rec"
+                android:backgroundTint="@{context.getColor(rule.getStatusColor())}"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@{rule.getStatusLabel()}"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/TextStyle.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@{rule.getScheduleSummary()}"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp" />
+
+        <TextView
+            style="@style/TextStyle.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text="@{rule.getNextRunLabel()}"
+            android:textColor="@color/hintColor"
+            android:textSize="13sp" />
+
+        <TextView
+            style="@style/TextStyle.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="@{rule.getLastRunLabel()}"
+            android:textColor="@color/hintColor"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/last_run_message"
+            style="@style/TextStyle.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="@{rule.getLastRunMessageLabel()}"
+            android:textColor="@color/colorError"
+            android:textSize="12sp"
+            android:visibility="@{rule.hasLastRunMessage() ? View.VISIBLE : View.GONE}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/toggle_rule"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_custom_color_round_rec"
+                android:text="@{rule.getActionLabel()}"
+                android:textColor="@color/color_text_theme"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/delete_rule"
+                style="@style/ButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_round_rec"
+                android:text="@string/remove"
+                android:textColor="@color/colorWhite"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

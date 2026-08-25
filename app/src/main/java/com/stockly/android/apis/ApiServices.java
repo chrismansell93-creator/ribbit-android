@@ -7,6 +7,8 @@ import androidx.room.Delete;
 import com.google.gson.JsonObject;
 import com.stockly.android.models.AccountStats;
 import com.stockly.android.models.Assets;
+import com.stockly.android.models.AutoTradeExecution;
+import com.stockly.android.models.AutoTradeRule;
 import com.stockly.android.models.Avatar;
 import com.stockly.android.models.BankAccount;
 import com.stockly.android.models.BarGraph;
@@ -154,6 +156,21 @@ public interface ApiServices {
 
     @POST("v1/orders")
     Observable<Orders> buyAsset(@Body HashMap<String, Object> body);
+
+    @POST("v1/auto-trades")
+    Observable<AutoTradeRule> createAutoTradeRule(@Body HashMap<String, Object> body);
+
+    @GET("v1/auto-trades")
+    Observable<List<AutoTradeRule>> getAutoTradeRules();
+
+    @PATCH("v1/auto-trades/{rule_id}")
+    Observable<AutoTradeRule> updateAutoTradeRule(@Path("rule_id") String ruleId, @Body HashMap<String, Object> body);
+
+    @DELETE("v1/auto-trades/{rule_id}")
+    Observable<Success> deleteAutoTradeRule(@Path("rule_id") String ruleId);
+
+    @GET("v1/auto-trades/{rule_id}/executions")
+    Observable<List<AutoTradeExecution>> getAutoTradeExecutions(@Path("rule_id") String ruleId);
 
     @GET("v1/market/stocks/{symbol}/bars")
     Observable<BarGraph> getGraphData(@Path("symbol") String symbol, @QueryMap HashMap<String, Object> body);
