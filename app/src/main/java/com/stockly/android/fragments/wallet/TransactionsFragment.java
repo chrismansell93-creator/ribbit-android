@@ -21,6 +21,7 @@ import com.stockly.android.dao.BankAccountDao;
 import com.stockly.android.dao.TradingProfileDao;
 import com.stockly.android.dao.UserDao;
 import com.stockly.android.databinding.FragmentTransactionsBinding;
+import com.stockly.android.fragments.AutoTradeRulesFragment;
 import com.stockly.android.fragments.NetworkFragment;
 import com.stockly.android.fragments.plaid.BankIntroFragment;
 import com.stockly.android.listners.DataListener;
@@ -84,8 +85,10 @@ public class TransactionsFragment extends NetworkFragment implements DataListene
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mBinding = FragmentTransactionsBinding.bind(view);
-        mBinding.toolbar.save.setVisibility(View.GONE);
+        mBinding.toolbar.save.setVisibility(View.VISIBLE);
+        mBinding.toolbar.save.setImageResource(R.drawable.ic_timer);
         mBinding.toolbar.title.setText(R.string.transactions);
+        mBinding.toolbar.save.setOnClickListener(v -> ActivityUtils.launchFragment(requireActivity(), AutoTradeRulesFragment.class));
 
         setUpToolBar(mBinding.toolbar.toolbar, true);
 
